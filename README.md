@@ -1,79 +1,80 @@
 # Nickel Exploration Potential in Ontario, Canada
 
-This project is a GIS and Python-based exploratory study of nickel exploration potential in Ontario, Canada.  
-It uses open geoscience data from the Ontario Mineral Inventory and the Bedrock Geology of Ontario to identify districts where nickel occurrences, favourable lithologies and mining maturity overlap.
+## Overview
 
-## Objective
+This project is a data-driven exploratory study of nickel exploration potential in Ontario, Canada.
 
-The objective is to build a first spatial prioritization of nickel exploration potential in Ontario using open data.
+It combines public mining datasets, geological information, spatial analysis and economic interpretation to identify areas with stronger nickel exploration interest. The project was developed as a portfolio case study at the intersection of applied economics, natural resources, critical minerals and geospatial analysis.
 
-The study does not estimate the economic value of deposits.  
-It ranks districts according to relative exploration potential based on:
+The analysis focuses on nickel occurrences, mafic and ultramafic geological units, and spatial relationships that may indicate favourable exploration zones.
 
-- nickel occurrences from the Ontario Mineral Inventory;
-- mining status of each occurrence;
-- location on mafic and ultramafic rocks;
-- district-level scoring;
-- reproducible Python processing.
+---
+
+## Objectives
+
+The main objectives of this project are:
+
+- Identify and filter nickel-related mineral occurrences in Ontario
+- Cross-reference nickel occurrences with favourable geological units
+- Map spatial patterns using QGIS
+- Highlight areas with stronger exploration potential
+- Produce a clear analytical report in French and English
+- Build a reproducible and documented portfolio project on critical minerals
+
+---
 
 ## Data Sources
 
-- Ontario Mineral Inventory — GeologyOntario  
-- Bedrock Geology of Ontario, MRD126-REV1 — GeologyOntario  
-- Ontario GeoHub — administrative boundaries  
-- OpenStreetMap — basemap used in QGIS  
+The project uses publicly available geological and mining data, mainly from Ontario open data sources.
+
+Main datasets include:
+
+- Ontario Mineral Inventory / OMI mineral occurrence data
+- Geological layers related to mafic and ultramafic formations
+- Processed nickel occurrence datasets
+- Spatial layers used for QGIS mapping and interpretation
+
+The dataset used in this repository is a processed version created for analytical and educational purposes.
+
+---
 
 ## Methodology
 
-The workflow follows five main steps:
+The workflow follows several steps:
 
-1. Extract nickel occurrences from the Ontario Mineral Inventory.
-2. Identify mafic and ultramafic geological units from the Bedrock Geology of Ontario.
-3. Select nickel occurrences intersecting favourable lithologies.
-4. Build a district-level exploration score based on mining status.
-5. Use Python to verify the results and calculate complementary indicators.
+1. **Data collection**  
+   Public mining and geological data were collected from Ontario open data sources.
 
-## Key Results
+2. **Nickel occurrence filtering**  
+   The Ontario Mineral Inventory dataset was filtered to isolate nickel-related occurrences.
 
-The initial extraction identified **1,554 nickel occurrences** in Ontario.
+3. **Geological selection**  
+   Mafic and ultramafic geological units were selected because they are commonly associated with nickel sulphide exploration contexts.
 
-A geological filter was then applied to retain only nickel occurrences located on mafic or ultramafic rocks.  
-This produced **589 favourable occurrences**, representing about **37.9%** of all nickel occurrences.
+4. **Spatial overlay analysis**  
+   Nickel occurrences were intersected or compared with favourable geological units to identify zones of stronger geological interest.
 
-The final district ranking is:
+5. **Mapping in QGIS**  
+   Maps were created to visualize:
+   - Nickel occurrence distribution
+   - Final nickel potential zones
+   - Geological context
 
-| Rank | District | Favourable occurrences | Final score | Class |
-|---:|---|---:|---:|---|
-| 1 | Sudbury | 162 | 278 | Very high |
-| 2 | Kirkland Lake | 100 | 220 | High |
-| 3 | Timmins | 141 | 193 | High |
-| 4 | Thunder Bay South | 59 | 74 | Intermediate |
-| 5 | Thunder Bay North | 34 | 45 | Intermediate |
-| 6 | Kenora | 31 | 36 | Moderate |
-| 7 | Red Lake | 32 | 35 | Moderate |
-| 8 | Southern Ontario | 17 | 22 | Low |
-| 9 | Sault Ste. Marie | 13 | 16 | Low |
+6. **Economic interpretation**  
+   Results were interpreted from a natural resources and critical minerals perspective, with attention to exploration potential rather than mine valuation.
 
-## Main Interpretation
+---
 
-Sudbury appears as the most robust district because it combines:
-
-- a high number of nickel occurrences on favourable rocks;
-- advanced mining status;
-- strong geological consistency.
-
-Kirkland Lake ranks above Timmins despite fewer favourable occurrences, because its average maturity index is higher.  
-Timmins remains important in volume, but its average maturity profile is lower.
-
-## Python Contribution
-
-Python was used to make the scoring reproducible and to calculate additional indicators:
-
-- share of favourable occurrences by district;
-- share of total score by district;
-- maturity index.
-
-The maturity index is calculated as:
+## Repository Structure
 
 ```text
-maturity index = final score / favourable occurrences
+ontario-nickel-exploration/
+│
+├── Rapport_Nickel_Ontario.pdf
+├── Nickel_Ontario_Report_EN.pdf
+├── Nickel_Ontario.qgz
+├── OMI_nickel.shp.gpkg
+├── omi_nickel_on_mafic_ultramafic.csv
+├── carte_1_localisation_occurrences_nickel_ontario.png
+├── carte_finale_potentiel_nickel_ontario.png
+└── README.md
